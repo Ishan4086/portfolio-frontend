@@ -1,23 +1,39 @@
 function Skills() {
   return (
-    <section id="skills" className="section skills">
-      <h2>Skills</h2>
+    <section id="skills" className="section skills-section">
+      <h2 className="skills-title">Technical Skills</h2>
       <div className="skills-container">
         <div className="skill-card">
-          <h4>Programming</h4>
-          <p>Python, C++, JavaScript</p>
+          <h4>Programming Languages</h4>
+          <ul>
+            <li>Python</li>
+            <li>C++</li>
+            <li>JavaScript</li>
+          </ul>
         </div>
         <div className="skill-card">
-          <h4>Frameworks</h4>
-          <p>Django, React</p>
+          <h4>Frameworks & Concepts</h4>
+          <ul>
+            <li>Django</li>
+            <li>React</li>
+            <li>REST APIs</li>
+          </ul>
         </div>
         <div className="skill-card">
           <h4>AI / ML</h4>
-          <p>K-Means, Logistic Regression, Data Visualization</p>
+          <ul>
+            <li>K-Means</li>
+            <li>Logistic Regression</li>
+            <li>Data Visualization</li>
+          </ul>
         </div>
         <div className="skill-card">
-          <h4>Tools</h4>
-          <p>Git, VS Code, MSSQL</p>
+          <h4>Tools & Development</h4>
+          <ul>
+            <li>Git & GitHub</li>
+            <li>VS Code</li>
+            <li>MSSQL</li>
+          </ul>
         </div>
       </div>
     </section>
