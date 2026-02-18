@@ -8,6 +8,8 @@ function Contact() {
 
   const sendEmail = async (e) => {
     e.preventDefault();
+
+    // Collect form data
     const formData = {
       name: form.current.name.value,
       email: form.current.email.value,
@@ -15,8 +17,21 @@ function Contact() {
     };
 
     try {
-      await emailjs.send("service_lg6o2wr", "template_e9agau7", formData, "z6JGpc0HqALo2AD1k");
-      await axios.post("https://backend-project-irdg.onrender.com/api/contact/", formData);
+      // Send email via EmailJS using Vercel environment variables
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formData,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      // Send data to Django backend deployed on Render
+      await axios.post(
+        import.meta.env.VITE_BACKEND_URL + "/api/contact/",
+        formData
+      );
+
+      // Show success message and reset form
       setMessageSent(true);
       form.current.reset();
       setTimeout(() => setMessageSent(false), 5000);
@@ -29,8 +44,10 @@ function Contact() {
     <>
       <section id="contact" className="section contact-section">
         <h2>Contact Me</h2>
-        <p className="contact-subtitle">Let's connect for internships, mentorship, or collaborations.</p>
-        
+        <p className="contact-subtitle">
+          Let's connect for internships, mentorship, or collaborations.
+        </p>
+
         <div className="contact-container">
           {/* Left Side: Form */}
           <div className="contact-form-card">
@@ -45,7 +62,12 @@ function Contact() {
               </div>
               <div className="input-group">
                 <label>Message</label>
-                <textarea name="message" placeholder="Tell me about your project..." rows="5" required />
+                <textarea
+                  name="message"
+                  placeholder="Tell me about your project..."
+                  rows="5"
+                  required
+                />
               </div>
               <button type="submit" className="send-btn">
                 Send Message &rarr;
@@ -109,4 +131,3 @@ function Contact() {
 }
 
 export default Contact;
-
