@@ -23,7 +23,6 @@ function Contact() {
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
-      // Success feedback
       setMessageSent(true);
       setErrorMessage("");
       form.current.reset();
@@ -55,6 +54,7 @@ function Contact() {
                 required
               />
             </div>
+
             <div className="input-group">
               <label>Email</label>
               <input
@@ -64,6 +64,7 @@ function Contact() {
                 required
               />
             </div>
+
             <div className="input-group">
               <label>Message</label>
               <textarea
@@ -73,6 +74,7 @@ function Contact() {
                 required
               />
             </div>
+
             <button type="submit" className="send-btn">
               Send Message &rarr;
             </button>
@@ -80,7 +82,9 @@ function Contact() {
             {messageSent && (
               <p className="success-msg">Message sent successfully!</p>
             )}
-            {errorMessage && <p className="error-msg">{errorMessage}</p>}
+            {errorMessage && (
+              <p className="error-msg">{errorMessage}</p>
+            )}
           </form>
         </div>
 
@@ -90,10 +94,12 @@ function Contact() {
             <h4>Email</h4>
             <p>poudelishan911@gmail.com</p>
           </div>
+
           <div className="info-card">
             <h4>Location</h4>
             <p>Chitwan, Nepal</p>
           </div>
+
           <div className="info-card">
             <h4>Social Media</h4>
             <div className="social-links-list">
@@ -101,57 +107,13 @@ function Contact() {
               <a href="https://www.linkedin.com/in/ishan-poudel-a3b8b0368/">
                 LinkedIn
               </a>
-              <a href="https://x.com/IshanPoudel6">X (Twitter)</a>
+              <a href="https://x.com/IshanPoudel6">
+                X (Twitter)
+              </a>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Footer */}
-      <footer className="footer">
-        <div className="footer-content">
-          <div className="footer-brand">
-            <h3>Ishan Poudel</h3>
-            <p>
-              Computer Engineering Student passionate about building
-              innovative digital solutions.
-            </p>
-          </div>
-          <div className="footer-links">
-            <h4>Quick Links</h4>
-            <ul>
-              <li>
-                <a href="#about">About</a>
-              </li>
-              <li>
-                <a href="#projects">Projects</a>
-              </li>
-              <li>
-                <a href="#skills">Skills</a>
-              </li>
-            </ul>
-          </div>
-          <div className="footer-connect">
-            <h4>Connect</h4>
-            <ul>
-              <li>
-                <a href="https://github.com/Ishan4086">GitHub</a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/in/ishan-poudel-a3b8b0368/">
-                  LinkedIn
-                </a>
-              </li>
-              <li>
-                <a href="mailto:poudelishan911@gmail.com">Email</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <p>&copy; 2026 Ishan Poudel. All rights reserved.</p>
-        </div>
-      </footer>
     </section>
   );
 }
